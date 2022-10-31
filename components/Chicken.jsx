@@ -1,6 +1,6 @@
 import Image from 'next/future/image'
 
-const Beef = ({ image, title, description, price }) => {
+const Chicken = ({ image, title, description, price }) => {
     return (
         <>
             <div className='w-[30%] border-2 rounded-md mb-6 shadow-md'>
@@ -62,11 +62,4 @@ const Beef = ({ image, title, description, price }) => {
     )
 }
 
-// You should use getStaticProps when:
-//- The data required to render the page is available at build time ahead of a user’s request.
-//- The data comes from a headless CMS.
-//- The data can be publicly cached (not user-specific).
-//- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
-
-
-export default Beef
+export default Chicken

@@ -19,14 +19,14 @@ export const Categories = () => {
                 </div>
                 <div className='w-[22%]'>
 
-                    <Image src={image} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-2000" objectfit="cover" />
+                    <Image src={image} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-2000" alt='categoria' objectfit="cover" />
                     <div className="bg-red-900 mb-14 text-center">
                         <h3 className="text-xl text-yellow-400 font-extrabold italic text-center py-2 ">Lomo Saltado</h3>
                         <h3 className='text-yellow-400 font-normal italic py-1 '>Pescados y Mariscos</h3>
                     </div>
                 </div>
                 <div className='w-[22%] mt-10'>
-                    <Image src={image} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-2000" objectfit="cover" />
+                    <Image src={image} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-2000" alt='categoria' objectfit="cover" />
                     <div className="bg-red-900 mb-14 text-center ">
                         <h3 className="text-xl text-yellow-400 font-extrabold italic text-center py-2 ">Lomo Saltado</h3>
                         <h3 className='text-yellow-400 font-normal italic py-1 '>Pescados y Mariscos</h3>
