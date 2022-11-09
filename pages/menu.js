@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import Beef from "../components/Beef";
 import MainMenu from "../components/MainMenu"
 import NavMenu from "../components/NavMenu"
+import Car from '../components/Car'
 
 const menu = ({ image, title, description, price }) => {
+
+
     return (
-        <div className="bg-[#FAFAFA]">
+        <div className="bg-[#FAFAFA] relative">
+            <Car />
             <NavMenu />
             <MainMenu />
             <main className='max-w-[1320px] px-10 2xl:px-20 py-4 mx-auto flex flex-wrap justify-between'>

@@ -1,7 +1,5 @@
 import { Layout } from "../components/Layout"
 import Beef from "../components/Fish"
-import supabase from "../config/supabaseClient"
-
 
 const beef = ({ image, title, description, price }) => {
     return (
