@@ -4,7 +4,7 @@ import logo from '../public/logo2.png'
 import Link from 'next/link';
 import Car from '../components/Car'
 
-const NavMenu = ({ temporal, cantidad }) => {
+const NavMenu = ({ cantidad }) => {
 
     const [car, setCar] = useState(false);
 
@@ -25,7 +25,7 @@ const NavMenu = ({ temporal, cantidad }) => {
                 </a>
             </Link>
             {car && (
-                <Car setCar={setCar} temporal={temporal} cantidad={cantidad} />
+                <Car setCar={setCar} />
             )}
         </div>
     )

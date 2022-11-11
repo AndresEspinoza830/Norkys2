@@ -33,7 +33,7 @@ const Rotisserie = () => {
         fetchSmoothies()
     }, [])
 
-    console.log(smoothies);
+    // console.log(smoothies);
 
 
     return (

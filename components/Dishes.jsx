@@ -11,7 +11,7 @@ export const Dishes = () => {
             <div className=" max-w-[1320px] w-full mx-auto flex flex-col lg:flex-row flex-wrap justify-between  items-center">
                 <div className="w-7/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full m-0 h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full m-0 h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>
@@ -19,7 +19,7 @@ export const Dishes = () => {
                 </div>
                 <div className="w-6/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>
@@ -27,7 +27,7 @@ export const Dishes = () => {
                 </div>
                 <div className="w-6/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>
@@ -35,7 +35,7 @@ export const Dishes = () => {
                 </div>
                 <div className="w-6/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>
@@ -43,7 +43,7 @@ export const Dishes = () => {
                 </div>
                 <div className="w-6/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>
@@ -51,7 +51,7 @@ export const Dishes = () => {
                 </div>
                 <div className="w-6/12 lg:w-[30%]">
                     <div className="overflow-hidden">
-                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" width={100} height={100} alt='Plato' />
+                        <Image src={img} className="w-full h-auto hover:scale-125 hover:opacity-40 transform transition duration-1000" alt='Plato' />
                     </div>
                     <div className="bg-red-900 mb-14 ">
                         <h3 className="text-xl text-white font-extrabold italic text-center py-3 border-b-4 border-yellow-400">Lomo Saltado</h3>

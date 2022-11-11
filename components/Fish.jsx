@@ -36,7 +36,7 @@ const Fish = () => {
     }, [])
 
 
-    console.log(smoothies);
+    // console.log(smoothies);
 
 
 

@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import supabase from '../../config/supabaseclient';
 import NavMenu from '../../components/NavMenu';
 
 const Dish = ({ temporal }) => {
 
-    const [cantidad, setCantidad] = useState(0)
-    const [error, setError] = useState(false)
+    const [cantidad, setCantidad] = useState(0);
+    const [error, setError] = useState(false);
+    const [platos, setPlatos] = useState([]);
+
+    useEffect(() => {
+        localStorage.setItem('platos', JSON.stringify(platos));
+    }, [platos]);
+
+    const miller = temporal[0]
 
     const handleDecrement = () => {
         setCantidad(cantidad - 1);
@@ -14,6 +21,12 @@ const Dish = ({ temporal }) => {
 
     const handleIncrement = () => {
         setCantidad(cantidad + 1);
+    }
+
+    const objetoDatos = {
+        name: miller.Name,
+        price: miller.Regular_price,
+        cantidad: cantidad
     }
 
     const handleEnviar = (e) => {
@@ -24,28 +37,24 @@ const Dish = ({ temporal }) => {
             setError(false)
         }
 
+        setPlatos([...platos, objetoDatos])
+        // console.log(platos);
+
     }
-
-    const miller = temporal[0]
-    // temporal.map(tem => {
-    //     miller = tem
-
-    // })
-    // console.log(miller.ID)
 
     return (
         <>
-            <NavMenu temporal={temporal} cantidad={cantidad} />
+            <NavMenu />
             <div className='max-w-[1320px] px-2 md:px-10 py-8 mx-auto'>
                 <div className='w-full md:mx-2'>
                     <div>
-                        <Link href="/menu">
+                        <a href="/menu">
                             <svg
                                 viewBox="0 0 1024 1024" version="1.1"
                                 width={50}
                                 className="cursor-pointer"
                                 xmlns="http://www.w3.org/2000/svg"><path d="M807.313723 464.738462H300.165908l197.151507-198.340924a31.507692 31.507692 0 1 0-44.693661-44.425846l-250.549169 252.061539c-0.291446 0.291446-0.488369 0.638031-0.764062 0.937354a31.452554 31.452554 0 0 0-3.111385 3.828184c-0.543508 0.8192-0.9216 1.701415-1.386338 2.552123-0.512 0.945231-1.079138 1.858954-1.496615 2.859323-0.441108 1.063385-0.701046 2.174031-1.016123 3.2768-0.252062 0.866462-0.590769 1.701415-0.764062 2.599385a31.484062 31.484062 0 0 0 0 12.319508c0.181169 0.897969 0.512 1.725046 0.764062 2.591507 0.322954 1.102769 0.575015 2.213415 1.016123 3.2768 0.417477 1.000369 0.984615 1.906215 1.496615 2.851447 0.464738 0.858585 0.842831 1.7408 1.394215 2.56 0.913723 1.370585 1.992862 2.615138 3.111385 3.828184 0.275692 0.299323 0.472615 0.645908 0.764062 0.937354l250.549169 252.061538a31.405292 31.405292 0 0 0 22.346831 9.29477 31.515569 31.515569 0 0 0 22.34683-53.720616L300.165908 527.753846h507.147815a31.507692 31.507692 0 0 0 0-63.015384z" fill="" /></svg>
-                        </Link>
+                        </a>
                         <h2 className="text-[#00833e] text-3xl font-extrabold mb-6 font-abc">{miller.Name}</h2>
                     </div>
                     <div className='flex flex-col-reverse md:flex-row w-full'>
@@ -95,7 +104,7 @@ const Dish = ({ temporal }) => {
 
                             </div>
                             <h3 className='font-abc font-extrabold text-4xl mb-8 text-[#00833e]'>${miller.Regular_price}</h3>
-                            <input className='bg-[#00833e] hover:bg-[#085d30] transition duration-500 hover:shadow-md hover:shadow-[#00833e] text-[#fed925] w-full py-3 rounded-lg font-abc text-xl font-bold text-center cursor-pointer' value="AGREGAR AL CARRITO" />
+                            <input className='bg-[#00833e] hover:bg-[#085d30] transition duration-500 hover:shadow-md hover:shadow-[#00833e] text-[#fed925] w-full py-3 rounded-lg font-abc text-xl font-bold text-center cursor-pointer' value="AGREGAR AL CARRITO" type="submit" />
                         </form>
                         <div className='w-full md:w-2/5  mb-4 '>
                             <img src={miller.Images} className="w-full m-0 h-auto rounded-md " objecfit="contain" alt='imagen' />
@@ -124,7 +133,7 @@ export const getServerSideProps = async ({ query: { name } }) => {
             // console.log(dish)
             if (dish.Name == name) {
 
-                console.log(dish)
+                // console.log(dish)
 
                 // let count = count++
                 // console.log(dish)
