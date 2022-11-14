@@ -1,46 +1,33 @@
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
+
+import { useState } from 'react';
 import supabase from '../../config/supabaseclient';
 import NavMenu from '../../components/NavMenu';
 
-const Dish = ({ temporal }) => {
+const Dish = ({ temporal, agregarCarrito }) => {
 
-    const [cantidad, setCantidad] = useState(0);
-    const [error, setError] = useState(false);
-    const [platos, setPlatos] = useState([]);
-
-    useEffect(() => {
-        localStorage.setItem('platos', JSON.stringify(platos));
-    }, [platos]);
+    const [cantidad, setCantidad] = useState(1);
 
     const miller = temporal[0]
 
-    const handleDecrement = () => {
-        setCantidad(cantidad - 1);
-    }
-
-    const handleIncrement = () => {
-        setCantidad(cantidad + 1);
-    }
-
-    const objetoDatos = {
-        name: miller.Name,
-        price: miller.Regular_price,
-        cantidad: cantidad
-    }
-
-    const handleEnviar = (e) => {
+    const handleCarrito = (e) => {
         e.preventDefault();
-        if (cantidad < 0) {
-            setError(true)
-        } else {
-            setError(false)
+        if (cantidad < 1) {
+            alert("Cantidad no valida");
+            return;
         }
 
-        setPlatos([...platos, objetoDatos])
-        // console.log(platos);
+        //Agregar al carrito
+        const guitarraSeleccionada = {
+            id: miller.ID,
+            name: miller.Name,
+            price: miller.Regular_price,
+            image: miller.Images,
+            cantidad: cantidad
+        }
 
+        agregarCarrito(guitarraSeleccionada);
     }
+
 
     return (
         <>
@@ -59,8 +46,8 @@ const Dish = ({ temporal }) => {
                     </div>
                     <div className='flex flex-col-reverse md:flex-row w-full'>
                         <form
-                            onSubmit={handleEnviar}
                             className='w-full md:w-3/5 mr-2'
+                            onSubmit={handleCarrito}
                         >
                             <h3 className='font-abc font-bold text-xl mb-2'>Descripcion</h3>
                             <p className='font-abc text-xl text-[#555555] mb-5'>{miller.Shortdescription}</p>
@@ -72,7 +59,24 @@ const Dish = ({ temporal }) => {
                             <div className='flex items-center mb-5'>
                                 <h3 className='font-abc font-bold text-xl mb-2'>Cantidad</h3>
                                 <div className='flex flex-row h-10 rounded-lg relative bg-transparent ml-4'>
-                                    <button
+                                    <select
+                                        className='w-24 text-center'
+                                        value={cantidad}
+                                        onChange={e => setCantidad(Number(e.target.value))}
+                                    >
+                                        <option value="">--Seleccione--</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    {/* <button
                                         className='border-[1px] h-full w-20 rounded-l cursor-pointer outline-none '
                                         onClick={handleDecrement}>
                                         <span className="m-auto text-2xl font-thin">-</span>
@@ -84,19 +88,14 @@ const Dish = ({ temporal }) => {
                                         value={cantidad}
                                         onChange={(e) => { setCantidad(e.target.value) }}
                                     />
-
                                     <button
                                         className='border-[1px] h-full w-20 rounded-l cursor-pointer outline-none'
                                         onClick={handleIncrement}
                                     >
                                         <span className="m-auto text-2xl font-thin">+</span>
-                                    </button>
+                                    </button> */}
                                 </div>
-                                {error && (
-                                    <div className='text-red-500 m-4 font-abc text-xl uppercase'>
-                                        <p>Cantidad no permitida</p>
-                                    </div>
-                                )}
+
 
                             </div>
                             <div>

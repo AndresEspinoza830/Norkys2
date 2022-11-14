@@ -1,16 +1,12 @@
 import Link from 'next/link';
 
-const mostrarBeef = () => {
-
-}
-
 const MainMenu = () => {
     return (
         <div className="max-w-[1320px] mx-auto w-full h-auto px-10 2xl:px-20 bg-white shadow-md flex justify-between items-center mt-10 border-2 border-gray-500">
             <div className="flex space-x-12 mx-auto items-center py-2">
                 <div className="flex items-center flex-col">
                     <Link href='/beef'>
-                        <a className='active:text-[#00833e] active:fill-[#00833e] text-center cursor-pointer' onClick={mostrarBeef}>
+                        <a className='active:text-[#00833e] active:fill-[#00833e] text-center cursor-pointer' >
                             <svg
                                 width="50"
                                 height="50"
