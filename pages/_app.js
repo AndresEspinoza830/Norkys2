@@ -8,6 +8,8 @@ function MyApp({ Component, pageProps }) {
 
   const [paginaLista, setPaginaLista] = useState(false)
 
+
+
   useEffect(() => {
     setPaginaLista(true)
   }, [])
@@ -52,12 +54,14 @@ function MyApp({ Component, pageProps }) {
     setCarrito(carritoActualizado)
     window.localStorage.setItem('carrito', JSON.stringify(carrito));
   }
-  return paginaLista ? <Component {...pageProps}
-    carrito={carrito}
-    agregarCarrito={agregarCarrito}
-    eliminarProducto={eliminarProducto}
-    actualizarCantidad={actualizarCantidad}
-  /> : null
+  return paginaLista ?
+    <Component {...pageProps}
+      carrito={carrito}
+      agregarCarrito={agregarCarrito}
+      eliminarProducto={eliminarProducto}
+      actualizarCantidad={actualizarCantidad}
+      setCarrito={setCarrito}
+    /> : null
 }
 
 export default MyApp
